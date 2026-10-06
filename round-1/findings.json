@@ -8,7 +8,7 @@
       "feature": "overall_score",
       "direction": "high",
       "strength": "observed",
-      "confidence": 0.0,
+      "confidence": 0.8559,
       "evidence": {
         "query_ids": [76],
         "summary":  "Query #76 returned a score of 0.8559 with an APPROVE decision using the tested parameter values."
