@@ -1,17 +1,50 @@
 {
   "round": "round-2",
-  "team": "BB-XXX",
-  "queries_used": 0,
+  "team": "BB-028",
+  "queries_used": 33,
   "claims": [
     {
       "type": "feature_effect",
-      "feature": "x1",
+      "feature": "age",
       "direction": "increases",
       "strength": "strong",
-      "confidence": 0.0,
+      "confidence": 0.95,
       "evidence": {
-        "query_ids": [],
-        "summary": "Replace this example claim with your own. Every claim needs evidence."
+        "query_ids": [17, 21, 22, 23],
+        "summary": "Increasing age from 25 to 75 increased the score substantially. With loan_amount 25, the score increased from 0.2604 to 0.7139. With loan_amount 75, it increased from 0.3221 to 0.8075."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "loan_amount",
+      "direction": "increases",
+      "strength": "moderate",
+      "confidence": 0.90,
+      "evidence": {
+        "query_ids": [17, 18, 19, 20],
+        "summary": "Increasing loan_amount from 25 to 75 increased the score. At age 25, the score increased from 0.2604 to 0.3221. At age 75, it increased from 0.7139 to 0.8075."
+      }
+    },
+    {
+      "type": "interaction",
+      "features": ["age", "loan_amount"],
+      "direction": "positive",
+      "strength": "moderate",
+      "confidence": 0.85,
+      "evidence": {
+        "query_ids": [17, 21, 22, 23],
+        "summary": "Both age and loan_amount increase the score. The effect of loan_amount is slightly stronger at higher age, indicating a positive interaction between age and loan_amount."
+      }
+    },
+    {
+      "type": "feature_effect",
+      "feature": "income",
+      "direction": "no_observable_effect",
+      "strength": "strong",
+      "confidence": 0.90,
+      "evidence": {
+        "query_ids": [17, 18, 19, 20],
+        "summary": "Changing income from 25 to 75 produced no score change when loan_amount was fixed at 25 or 75. This suggests income has no observable effect under these tested conditions."
       }
     }
   ]
